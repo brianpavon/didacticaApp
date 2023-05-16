@@ -36,13 +36,18 @@
       <ion-item class="ion-margin-top">
         <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
       </ion-item>
+      
+      <ion-text *ngIf="formRegistro.controls['email'].errors?.['required'] && formRegistro.controls['email'].touched" color="warning">Debe ingresar un email</ion-text>
   
       <ion-item>
         <ion-input type="password" placeholder="Contraseña" formControlName="pass"></ion-input>
       </ion-item>
-  
+      
+      <ion-text *ngIf="formRegistro.controls['pass'].errors?.['required'] && formRegistro.controls['pass'].touched" color="warning">Debe ingresar una contraseña</ion-text>
+      <ion-text *ngIf="formRegistro.controls['pass'].errors?.['minlength']" color="warning">Debe tener 6 caracteres mínimo</ion-text>
+
       <div class="ion-text-center ion-margin-top">
-        <ion-button expand="block" color="dark" (click)="login()">Ingresar</ion-button>
+        <ion-button [disabled]="formRegistro.invalid" expand="block" color="dark" (click)="login()">Ingresar</ion-button>
       </div>
     </form>
 
