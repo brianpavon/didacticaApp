@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-animales',
@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimalesComponent  implements OnInit {
 
+  @Output() enviarDato = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit() {}
+
+  playSound(animal : string)
+  {
+    this.enviarDato.emit(animal);
+  }
 
 }

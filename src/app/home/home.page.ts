@@ -8,7 +8,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomePage {
   
-  idiomaActual : string = "espaniol";
+  idiomaActual : string = "es";
   portugues : boolean = false;
   ingles : boolean = false;
   espaniol : boolean = true;
@@ -31,19 +31,19 @@ export class HomePage {
           this.espaniol = true;
           this.ingles = false;
           this.portugues = false; 
-          this.idiomaActual = "espaniol";        
+          this.idiomaActual = "es";        
           break;
         case "en":
           this.ingles = true;
           this.espaniol = false;
           this.portugues = false;
-          this.idiomaActual = "ingles";
+          this.idiomaActual = "en";
           break;
         case "po":
           this.portugues = true;
           this.espaniol = false;
           this.ingles = false;
-          this.idiomaActual = "portugues";
+          this.idiomaActual = "por";
           break;
     }
   }
@@ -69,5 +69,25 @@ export class HomePage {
           break;
     }
   }
+  
+  playSonido(dato : string)
+  {
+    let ruta : string = '../../../assets/audios/animals/';
+    let nombreArchivo : string = "";
+    let audioNombre : string = "";
+
+    audioNombre = dato + "-" + this.idiomaActual + ".mp3"; 
+    nombreArchivo = ruta + audioNombre;
+
+    this.play(nombreArchivo);
+           
+  }
+
+  play(ruta : string)
+  {
+    let audio = new Audio(ruta);
+    audio.play();   
+  }
+
 
 }
