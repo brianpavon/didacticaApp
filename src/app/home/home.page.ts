@@ -72,7 +72,7 @@ export class HomePage {
   
   playSonido(dato : string)
   {
-    let ruta : string = '../../../assets/audios/animals/';
+    let ruta : string = '../../../assets/audios/';
     let nombreArchivo : string = "";
     let audioNombre : string = "";
 

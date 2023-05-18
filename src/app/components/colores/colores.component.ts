@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-colores',
@@ -6,9 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./colores.component.scss'],
 })
 export class ColoresComponent  implements OnInit {
-
+  @Output() enviarDato = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {}
+
+  playSound(animal : string)
+  {
+    this.enviarDato.emit(animal);
+  }
 
 }
