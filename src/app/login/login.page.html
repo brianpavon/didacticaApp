@@ -34,10 +34,10 @@
     
     <form [formGroup] = "formRegistro">
       <ion-item class="ion-margin-top">
-        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+        <ion-input type="email" placeholder="Correo" formControlName="email"></ion-input>
       </ion-item>
       
-      <ion-text *ngIf="formRegistro.controls['email'].errors?.['required'] && formRegistro.controls['email'].touched" color="warning">Debe ingresar un email</ion-text>
+      <ion-text *ngIf="formRegistro.controls['email'].errors?.['required'] && formRegistro.controls['email'].touched" color="warning">Debe ingresar un correo</ion-text>
   
       <ion-item>
         <ion-input type="password" placeholder="Contraseña" formControlName="pass"></ion-input>
